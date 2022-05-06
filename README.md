@@ -4,5 +4,4 @@
 
 The code was made with the help of online video of the Channel "I do code" from Leonardo Zambaldi
 
-A huge thanks to him for helping me develop my project!!!
-https://replit.com/@fzleonardo
+Ps:The game is on his V1.0, so there a few bugs iam tryting to fix rsrs
