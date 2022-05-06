@@ -1,0 +1,14 @@
+import random
+
+palavras=["boneca","brinquedo","jogos","banana","sorvete","diversao","macedonia","surpresa","joia","computador","python","git"]
+
+
+tentativas=0
+palavra=random.choice(palavras)
+chances=6
+letras_escolhidas=[]
+letras_palavra=["_"]*len(palavra)
+
+print('''Vamos jogar um jogo? rs
+Voce tem 6 tentativas antes da tela azul.''')
+print(letras_palavra)
