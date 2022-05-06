@@ -1,14 +1,53 @@
+
 import random
 
-palavras=["boneca","brinquedo","jogos","banana","sorvete","diversao","macedonia","surpresa","joia","computador","python","git"]
+palavras = ["boneca", "brinquedo", "jogos", "banana", "sorvete"
+    , "diversao", "macedonia", "surpresa", "joia",
+            "computador", "python", "git"]
 
-
-tentativas=0
-palavra=random.choice(palavras)
-chances=6
-letras_escolhidas=[]
-letras_palavra=["_"]*len(palavra)
+tentativas = 0
+palavra = random.choice(palavras)
+chances = 6
+letras_escolhidas = []
+estado_atual = ["_"] * len(palavra)
 
 print('''Vamos jogar um jogo? rs
-Voce tem 6 tentativas antes da tela azul.''')
-print(letras_palavra)
+Voce tem 6 tentativas antes da tela azul.\n''')
+print(estado_atual)
+
+while palavra !=''.join(estado_atual):
+    letra = input("\n\n\nEscolha uma letra! \n")
+    while letra in letras_escolhidas:
+        print("Voce ja escolheu essa letra")
+        letras_escolhidas.append(letra)
+        input("Escolha outra letra")
+
+    if letra in palavra:
+        print("\nVoce acertou 1 letra!\n")
+        for i in range(len(palavra)):
+            if letra in palavra[i]:
+                estado_atual[i] = letra
+
+        print(f"Voce ainda tem {(chances - tentativas)} chances!")
+        print("A palavra agora esta assim: \n", estado_atual)
+        print("Voce ja tentou as letras:")
+        for iten in letras_escolhidas:
+            print(iten, end=" ")
+        if chances - tentativas == 0:
+            print("Sua ultima chance é essa!")
+
+    else:
+        print("\nErrrouuu\n")
+        tentativas += 1
+        print(f"Voce ainda tem {(chances - tentativas)} chances!")
+        print("A palavra agora esta assim: \n", estado_atual)
+        print("Voce ja tentou as letras:")
+        if chances - tentativas == 0:
+            print("Sua ultima chance é essa!")
+        for iten in letras_escolhidas:
+            print(iten, end=" ")
+    if tentativas==chances:
+        print("\nI won hahaha")
+        break
+
+print("You won!")
