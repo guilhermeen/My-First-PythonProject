@@ -1,4 +1,3 @@
-
 import random
 
 palavras = ["boneca", "brinquedo", "jogos", "banana", "sorvete"
@@ -17,7 +16,7 @@ print(estado_atual)
 
 while palavra !=''.join(estado_atual):
     letra = input("\n\n\nEscolha uma letra! \n")
-    while letra in letras_escolhidas:
+    if letra in letras_escolhidas:
         print("Voce ja escolheu essa letra")
         letras_escolhidas.append(letra)
         input("Escolha outra letra")
@@ -27,6 +26,7 @@ while palavra !=''.join(estado_atual):
         for i in range(len(palavra)):
             if letra in palavra[i]:
                 estado_atual[i] = letra
+        letras_escolhidas.append(letra)
 
         print(f"Voce ainda tem {(chances - tentativas)} chances!")
         print("A palavra agora esta assim: \n", estado_atual)
@@ -41,6 +41,7 @@ while palavra !=''.join(estado_atual):
         tentativas += 1
         print(f"Voce ainda tem {(chances - tentativas)} chances!")
         print("A palavra agora esta assim: \n", estado_atual)
+        letras_escolhidas.append(letra)
         print("Voce ja tentou as letras:")
         if chances - tentativas == 0:
             print("Sua ultima chance é essa!")
@@ -50,4 +51,5 @@ while palavra !=''.join(estado_atual):
         print("\nI won hahaha")
         break
 
-print("You won!")
+if estado_atual==palavra:
+print("\nYou won!")
